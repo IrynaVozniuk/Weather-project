@@ -1,0 +1,54 @@
+h2,
+h3,
+h4,
+h5,
+p,
+.card {
+  text-align: center;
+  position: relative;
+}
+h1 {
+  left: 250px;
+  position: fixed;
+}
+h2 {
+  top: 50px;
+}
+h3 {
+  top: 100px;
+  font-weight: 900px;
+}
+h4 {
+  top: 150px;
+}
+footer .card {
+  position: fixed;
+  bottom: 100px;
+}
+#end {
+  position: fixed;
+  bottom: 20px;
+  left: 50px;
+}
+#endl {
+  position: fixed;
+  bottom: 20px;
+  left: 190px;
+}
+body {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+#userCity,
+#uc {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(155, 166, 236);
+  cursor: pointer;
+}
+#location {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(126, 150, 155);
+  cursor: pointer;
+}
+.card-body {
+  box-shadow: 5px 5px 10px rgb(7, 196, 234);
+}
