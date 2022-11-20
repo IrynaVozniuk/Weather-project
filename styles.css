@@ -50,9 +50,18 @@ body {
   cursor: pointer;
 }
 #temperature {
-  font-size: 48px;
+  font-size: 38px;
   font-weight: bold;
 }
 .card-body {
   box-shadow: 5px 5px 10px rgb(7, 196, 234);
+}
+.active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
+  color: black;
 }
