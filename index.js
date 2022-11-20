@@ -38,6 +38,11 @@ timeWindow.innerHTML = currentTime;
 
 function showTemp(response) {
   document.querySelector("#city").innerHTML = response.data.name;
+  let icona = document.querySelector("#icon");
+  icona.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
