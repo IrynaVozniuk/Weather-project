@@ -43,9 +43,8 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsTemp = response.data.main.temp;
+  document.querySelector("#temperature").innerHTML = Math.round(celsTemp);
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
@@ -77,3 +76,20 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", searching);
 let userLocation = document.querySelector("#location");
 userLocation.addEventListener("click", getCurrentLocation);
+
+let celsTemp = null;
+
+function showFar(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = Math.round(
+    (celsTemp * 9) / 5 + 32
+  );
+}
+function showCels(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = Math.round(celsTemp);
+}
+let farTemp = document.querySelector("#far");
+farTemp.addEventListener("click", showFar);
+let celTemp = document.querySelector("#cels");
+celTemp.addEventListener("click", showCels);

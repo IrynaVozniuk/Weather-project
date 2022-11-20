@@ -49,6 +49,10 @@ body {
   box-shadow: 5px 5px 10px rgb(126, 150, 155);
   cursor: pointer;
 }
+#temperature {
+  font-size: 48px;
+  font-weight: bold;
+}
 .card-body {
   box-shadow: 5px 5px 10px rgb(7, 196, 234);
 }
