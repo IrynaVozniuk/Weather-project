@@ -36,6 +36,31 @@ let currentTime = hour + " : " + minutes;
 let timeWindow = document.querySelector("#cTime");
 timeWindow.innerHTML = currentTime;
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row row-cols-1 row-cols-md-5 g-5">`;
+  let days = ["Monday", "Thuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <div class="card h-70">
+       <div class="card-body">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="50"/>
+          <small id="daily-forecast-weather">Partly sunny</small>
+          <div id="daily-forecast-temp"> 17°C</div>
+          </div>
+          </div>
+        </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemp(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   let icona = document.querySelector("#icon");
@@ -97,3 +122,5 @@ let farTemp = document.querySelector("#far");
 farTemp.addEventListener("click", showFar);
 let celTemp = document.querySelector("#cels");
 celTemp.addEventListener("click", showCels);
+rWeather("Kyiv");
+showForecast();
