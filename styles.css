@@ -21,8 +21,9 @@ h3 {
 h4 {
   top: 150px;
 }
-footer .card {
+h5 {
   position: fixed;
+  text-align: center;
   bottom: 100px;
 }
 #end {
