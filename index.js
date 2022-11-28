@@ -35,28 +35,54 @@ if (minutes < 10) {
 let currentTime = hour + " : " + minutes;
 let timeWindow = document.querySelector("#cTime");
 timeWindow.innerHTML = currentTime;
-
+function formatDayForecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
 function showForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row row-cols-1 row-cols-md-5 g-5">`;
   let days = ["Monday", "Thuesday", "Wednesday", "Thursday", "Friday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
       <div class="card h-70">
        <div class="card-body">
-        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-date">${formatDayForecast(
+          forecastDay.dt
+        )}</div>
         <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=""
           width="50"/>
-          <small id="daily-forecast-weather">Partly sunny</small>
-          <div id="daily-forecast-temp"> 17°C</div>
+          <small id="daily-forecast-weather">${
+            forecastDay.weather[0].main
+          }</small>
+          <div id="daily-forecast-temp-max">${Math.round(
+            forecastDay.temp.max
+          )}°C</div>
+          <span id="daily-forecast-temp-min">${Math.round(
+            forecastDay.temp.min
+          )}°C</span>
           </div>
           </div>
         </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -94,7 +120,7 @@ function searching(event) {
   rWeather(city);
 }
 function searchUser(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "85bbd3d16a2dfe0ecf253c7ae1e8fe03";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
