@@ -36,7 +36,8 @@ let currentTime = hour + " : " + minutes;
 let timeWindow = document.querySelector("#cTime");
 timeWindow.innerHTML = currentTime;
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row row-cols-1 row-cols-md-5 g-5">`;
   let days = ["Monday", "Thuesday", "Wednesday", "Thursday", "Friday"];
@@ -61,12 +62,10 @@ function showForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = "cf6b50b908fa2e0baca3eed8a569a5f6";
+  let apiKey = "85bbd3d16a2dfe0ecf253c7ae1e8fe03";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
 }
-
 function showTemp(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   let icona = document.querySelector("#icon");
@@ -81,10 +80,10 @@ function showTemp(response) {
   );
   document.querySelector("#humid").innerHTML = response.data.main.humidity;
   document.querySelector("#weather").innerHTML = response.data.weather[0].main;
-  getForecast(response.data.coords);
+  getForecast(response.data.coord);
 }
 function rWeather(city) {
-  let apiKey = "cf6b50b908fa2e0baca3eed8a569a5f6";
+  let apiKey = "85bbd3d16a2dfe0ecf253c7ae1e8fe03";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
@@ -130,4 +129,3 @@ farTemp.addEventListener("click", showFar);
 let celTemp = document.querySelector("#cels");
 celTemp.addEventListener("click", showCels);
 rWeather("Kyiv");
-showForecast();
