@@ -11,15 +11,17 @@ h1 {
   top: 50px;
 }
 h2 {
-  left: 250px;
-  position: fixed;
+  left: 130px;
+  position: relative;
+  top: 20px;
+  font-size: 48px;
 }
 h3 {
   font-weight: 700px;
   top: 50px;
 }
 h4 {
-  right: 155px;
+  right: 160px;
   top: 70px;
 }
 h5 {
