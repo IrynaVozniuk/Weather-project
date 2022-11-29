@@ -52,7 +52,7 @@ function formatDayForecast(timestamp) {
 function showForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row row-cols-2 row-cols-md-5 g-5">`;
+  let forecastHTML = `<div class="row row-cols-2 row-cols-md-6 g-6">`;
   let days = [
     "Sunday",
     "Monday",
