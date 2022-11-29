@@ -1,4 +1,4 @@
-h2,
+h1,
 h3,
 h4,
 h5,
@@ -8,23 +8,22 @@ p,
   position: relative;
 }
 h1 {
+  top: 50px;
+}
+h2 {
   left: 250px;
   position: fixed;
 }
-h2 {
+h3 {
+  font-weight: 700px;
   top: 50px;
 }
-h3 {
-  top: 100px;
-  font-weight: 900px;
-}
 h4 {
-  top: 150px;
+  right: 155px;
+  top: 70px;
 }
 h5 {
-  position: fixed;
-  text-align: center;
-  bottom: 100px;
+  bottom: -100px;
 }
 #end {
   position: fixed;
@@ -37,7 +36,7 @@ h5 {
   left: 190px;
 }
 body {
-  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  background: linear-gradient(to top, #fff1eb 0%, #2183b1 100%);
 }
 #userCity,
 #uc {
@@ -50,10 +49,18 @@ body {
   box-shadow: 5px 5px 10px rgb(126, 150, 155);
   cursor: pointer;
 }
+#degr {
+  margin-top: 0;
+}
 #temperature {
-  font-size: 38px;
+  font-size: 28px;
   font-weight: bold;
 }
 .card-body {
   box-shadow: 5px 5px 10px rgb(7, 196, 234);
+  font-size: 20px;
+}
+#daily-forecast-temp-max,
+#daily-forecast-temp-min {
+  font-size: 15px;
 }

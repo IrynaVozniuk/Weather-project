@@ -52,8 +52,16 @@ function formatDayForecast(timestamp) {
 function showForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row row-cols-1 row-cols-md-5 g-5">`;
-  let days = ["Monday", "Thuesday", "Wednesday", "Thursday", "Friday"];
+  let forecastHTML = `<div class="row row-cols-2 row-cols-md-5 g-5">`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Thuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastHTML =
@@ -69,10 +77,10 @@ function showForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="50"/>
-          <small id="daily-forecast-weather">${
+          width="60"/>
+          <div id="daily-forecast-weather">        ${
             forecastDay.weather[0].main
-          }</small>
+          }</div>
           <div id="daily-forecast-temp-max">${Math.round(
             forecastDay.temp.max
           )}°C</div>
