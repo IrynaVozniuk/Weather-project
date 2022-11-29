@@ -134,24 +134,4 @@ form.addEventListener("submit", searching);
 let userLocation = document.querySelector("#location");
 userLocation.addEventListener("click", getCurrentLocation);
 
-let celsTemp = null;
-
-function showFar(event) {
-  event.preventDefault();
-  celTemp.classList.remove("active");
-  farTemp.classList.add("active");
-  document.querySelector("#temperature").innerHTML = Math.round(
-    (celsTemp * 9) / 5 + 32
-  );
-}
-function showCels(event) {
-  event.preventDefault();
-  celTemp.classList.add("active");
-  farTemp.classList.remove("active");
-  document.querySelector("#temperature").innerHTML = Math.round(celsTemp);
-}
-let farTemp = document.querySelector("#far");
-farTemp.addEventListener("click", showFar);
-let celTemp = document.querySelector("#cels");
-celTemp.addEventListener("click", showCels);
 rWeather("Kyiv");
